@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Detail from './components/Detail';
 import Main from './views/Main';
+import Update from './components/Update';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route element={<Main/>} path="/home" default />
           <Route element={<Detail/>} path="/api/project/:id" />
+          <Route element={<Update/>} path="/api/project/edit/:id"/>
         </Routes>
       </BrowserRouter>
   </div>

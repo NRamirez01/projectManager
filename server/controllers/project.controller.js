@@ -23,3 +23,15 @@ module.exports.getProject = (request, response) => {
         .then(project => response.json(project))
         .catch(err => response.json(err))
 }
+
+module.exports.updateProject = (request, response) => {
+    Project.findOneAndUpdate({id: request.params.id}, request.body, {new:true})
+        .then(updatedProject => response.json(updatedProject))
+        .catch(err => response.json(err))
+}
+
+module.exports.deleteProject = (request, response) => {
+    Project.deleteOne({id: request.params.id })
+        .then(deleteConfirmation => response.json(deleteConfirmation))
+        .catch(err => response.json(err))
+}
